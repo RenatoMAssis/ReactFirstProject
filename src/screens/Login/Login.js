@@ -12,19 +12,37 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from 'react-native';
 
-export default class Login extends Component {
+type Props = {};
+export default class Login extends Component<Props> {
   constructor(props) {
     super(props)
-    this.state = { count: 0, username: "", password: "" }
+    this.state = { username: "Teste", password: "1234" }
   }
 
   onPress = () => {
-    this.setState({
-      count: this.state.count+1
-    })
+    if (this.state.username == "Teste" && this.state.password == "1234") {
+      Alert.alert(
+        'Sucesso',
+        'Login realizado com sucesso',
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed')},
+        ],
+        { cancelable: false }
+      )
+    } else {
+      Alert.alert(
+        'Erro',
+        'Usuário e/ou senha inválidos',
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed')},
+        ],
+        { cancelable: false }
+      )
+    }
   }
 
   render() {
@@ -44,6 +62,7 @@ export default class Login extends Component {
         onChangeText={(password) => this.setState({password})}
         value={this.state.password}
         placeholder="password"
+        secureTextEntry = { true }
       />
         <TouchableOpacity
           style={styles.button}
@@ -51,12 +70,6 @@ export default class Login extends Component {
         >
          <Text> Login </Text>
        </TouchableOpacity>
-
-       <View style={[styles.countContainer]}>
-         <Text style={[styles.countText]}>
-            { this.state.count !== 0 ? this.state.count: null}
-          </Text>
-        </View>
       </View>
     );
   }
