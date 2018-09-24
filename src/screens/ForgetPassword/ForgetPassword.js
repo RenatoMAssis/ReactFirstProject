@@ -9,7 +9,7 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class Main extends Component<Props> {
+export default class ForgetPassword extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
@@ -21,7 +21,7 @@ export default class Main extends Component<Props> {
   }
 }
 
-const styles = StyleSheet.create({x
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',

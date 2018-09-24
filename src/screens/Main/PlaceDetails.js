@@ -9,7 +9,7 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class Main extends Component<Props> {
+export default class PlaceDetails extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>

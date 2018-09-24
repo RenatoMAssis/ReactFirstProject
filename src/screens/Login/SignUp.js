@@ -17,14 +17,14 @@ import {
 } from 'react-native';
 
 type Props = {};
-export default class Login extends Component<Props> {
+export default class SignUp extends Component<Props> {
   constructor(props) {
     super(props)
-    this.state = { username: "Teste", password: "1234" }
+    this.state = { username: 'Teste', password: '1234' }
   }
 
   onPress = () => {
-    if (this.state.username == "Teste" && this.state.password == "1234") {
+    if (this.state.username == 'Teste' && this.state.password == '1234') {
       Alert.alert(
         'Sucesso',
         'Login realizado com sucesso',
@@ -55,13 +55,13 @@ export default class Login extends Component<Props> {
         style={{height: 40, width: 100}}
         onChangeText={(username) => this.setState({username})}
         value={this.state.username}
-        placeholder="username"
+        placeholder='username'
       />
         <TextInput
         style={{height: 40, width: 100, alignItems: 'center'}}
         onChangeText={(password) => this.setState({password})}
         value={this.state.password}
-        placeholder="password"
+        placeholder='password'
         secureTextEntry = { true }
       />
         <TouchableOpacity
