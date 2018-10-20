@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Alert, Dimensions, TouchableOpacity, TextInput} from 'react-native';
+import {Platform, StyleSheet, Text, View, Alert, Dimensions, TouchableOpacity, TextInput, ImageBackground} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import firebase from "firebase"
 
@@ -31,9 +31,9 @@ export default class SignUp extends Component<Props> {
       nome: "",
       email: "renatomirandaassis@gmail.com.br",
       senha: "",
-      cidade: "Cidade aqui",
-      telefone: "Telefone aqui",
-      idade: "Idade aqui"
+      cidade: "",
+      telefone: "",
+      idade: ""
     };
   }
 
@@ -48,6 +48,10 @@ export default class SignUp extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
+       <ImageBackground
+        style={styles.backgroundStyle}
+        source={require('../../Images/background.png')}>
+      
         <TouchableOpacity onPress={()=> this.backToLogin()} style={styles.backButton} >
           <Text style={styles.buttonText}>Voltar para login</Text>
         </TouchableOpacity>
@@ -58,18 +62,21 @@ export default class SignUp extends Component<Props> {
           style={styles.inputStyle}
           onChangeText={(text) => this.setState({nome: text})}
           placeholder="Ex: João Silva"
+          placeholderTextColor= 'white'
           value={this.state.nome}
         />
         <TextInput
           style={styles.inputStyle}
           onChangeText={(text) => this.setState({email: text})}
           placeholder="Ex: fulano@gmail.com"
+          placeholderTextColor= 'white'
           value={this.state.email}
         />
         <TextInput
           style={styles.inputStyle}
           onChangeText={(text) => this.setState({senha: text})}
           placeholder="Senha aqui"
+          placeholderTextColor= 'white'
           secureTextEntry
           value={this.state.senha}
         />
@@ -77,23 +84,27 @@ export default class SignUp extends Component<Props> {
           style={styles.inputStyle}
           onChangeText={(text) => this.setState({cidade: text})}
           placeholder="Ex: Belo Horizonte"
+          placeholderTextColor= 'white'
           value={this.state.cidade}
         />
         <TextInput
           style={styles.inputStyle}
           onChangeText={(text) => this.setState({telefone: text})}
           placeholder="Ex: (31) 99999=9999"
+          placeholderTextColor= 'white'
           value={this.state.telefone}
         />
         <TextInput
           style={styles.inputStyle}
           onChangeText={(text) => this.setState({idade: text})}
           placeholder="Ex: 19 anos"
+          placeholderTextColor= 'white'
           value={this.state.idade}
         />
         <TouchableOpacity onPress={()=> this.askRegister()} style={styles.registerButton} >
           <Text style={styles.buttonText}>Cadastrar</Text>
         </TouchableOpacity>
+        </ImageBackground>
       </View>
     );
   }
@@ -185,7 +196,7 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start"
   },
   registerButton: {
-    backgroundColor: "green",
+    backgroundColor: "#039BE5",
     borderRadius: 10,
     padding: 10,
     margin: 20,
@@ -198,14 +209,19 @@ const styles = StyleSheet.create({
   inputStyle:{
     height: height * 0.06, 
     width: width * 0.85, 
-    borderBottomColor: 'gray', 
+    borderBottomColor: 'white', 
     borderBottomWidth: 1,
-    margin: width * 0.04
+    margin: width * 0.04,
+    color: 'white'
   },
   titleText:{
     fontSize: 30,
     alignItems: 'center',
     textAlign: 'center',
     color: "#039BE5"
+  },
+  backgroundStyle: {
+    width: width,
+    height: height
   }
 });
