@@ -24,8 +24,8 @@ class RouterComponent extends Component {
         <Router>
           <Scene key='app'>
             <Scene key='auth' initial hideNavBar>
-              <Scene key='login'
-                component={Login}
+              <Scene key='dashboard'
+                component={Dashboard}
                 initial />
               <Scene
                 key='signup'
